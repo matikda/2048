@@ -1,89 +1,56 @@
-// Define the game board
-let gameBoard = [
-  [0, 0, 0, 0],
+ let gameBoard = [  [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0]
 ];
 
-// Generate a random tile (2 or 4)
-function generateRandomTile() {
-  return Math.random() < 0.9 ? 2 : 4;
-}
-
-// Place a new tile on an empty square
-function placeNewTile() {
-  const emptySquares = [];
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 4; c++) {
-      if (gameBoard[r][c] === 0) {
-        emptySquares.push([r, c]);
+// update the game board to reflect the current state of the game
+function render() {
+  for (let row = 0; row < 4; row++) {
+    for (let col = 0; col < 4; col++) {
+      let tile = document.querySelector(`#tile-${row}-${col}`);
+      let value = gameBoard[row][col];
+      if (value === 0) {
+        tile.src = "path/to/empty-tile.jpg";
+      } else if (value === 2) {
+        tile.src = "path/to/zendaya-2.jpg";
+      } else if (value === 4) {
+        tile.src = "path/to/zendaya-4.jpg";
+      } else if (value === 8) {
+        tile.src = "path/to/zendaya-8.jpg";
+      } else if (value === 16) {
+        tile.src = "path/to/zendaya-16.jpg";
+      } else if (value === 32) {
+        tile.src = "path/to/zendaya-32.jpg";
+      } else if (value === 64) {
+        tile.src = "path/to/zendaya-64.jpg";
+      } else if (value === 128) {
+        tile.src = "path/to/zendaya-128.jpg";
+      } else if (value === 256) {
+        tile.src = "path/to/zendaya-256.jpg";
+      } else if (value === 512) {
+        tile.src = "path/to/zendaya-512.jpg";
+      } else if (value === 1024) {
+        tile.src = "path/to/zendaya-1024.jpg";
+      } else if (value === 2048) {
+        tile.src = "path/to/zendaya-2048.jpg";
       }
     }
   }
-  if (emptySquares.length === 0) {
-    return false;
+}
+
+// start the game
+startGame();
+
+// handle keyboard input
+document.addEventListener("keydown", function(event) {
+  if (event.keyCode === 38) {
+    moveUp();
+  } else if (event.keyCode === 40) {
+    moveDown();
+  } else if (event.keyCode === 37) {
+    moveLeft();
+  } else if (event.keyCode === 39) {
+    moveRight();
   }
-  const [r, c] = emptySquares[Math.floor(Math.random() * emptySquares.length)];
-  gameBoard[r][c] = generateRandomTile();
-  return true;
-}
-
-// Initialize the game board with two random tiles
-function initGame() {
-  placeNewTile();
-  placeNewTile();
-}
-
-// Check if the game is over (i.e. no more moves possible)
-function isGameOver() {
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 4; c++) {
-      if (gameBoard[r][c] === 0) {
-        return false;
-      }
-      if (c !== 3 && gameBoard[r][c] === gameBoard[r][c+1]) {
-        return false;
-      }
-      if (r !== 3 && gameBoard[r][c] === gameBoard[r+1][c]) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
-// Move tiles to the left
-function moveLeft() {
-  let moved = false;
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 4; c++) {
-      if (gameBoard[r][c] !== 0) {
-        for (let nc = 0; nc < c; nc++) {
-          if (gameBoard[r][nc] === 0 && noObstacleBetween(r, nc, r, c)) {
-            gameBoard[r][nc] = gameBoard[r][c];
-            gameBoard[r][c] = 0;
-            moved = true;
-            break;
-          }
-          if (gameBoard[r][nc] === gameBoard[r][c] && noObstacleBetween(r, nc, r, c)) {
-            gameBoard[r][nc] *= 2;
-            gameBoard[r][c] = 0;
-            moved = true;
-            break;
-          }
-        }
-      }
-    }
-  }
-  return moved;
-}
-
-// Move tiles to the right
-function moveRight() {
-  let moved = false;
-  for (let r = 0; r < 4; r++) {
-    for (let c = 3; c >= 0; c--) {
-      if (gameBoard[r][c] !== 0) {
-        for (let nc = 3; nc > c; nc--) {
-          if (gameBoard[r][nc] === 0 && noObstacleBetween(r, c, r, nc
+});
