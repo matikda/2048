@@ -11,33 +11,33 @@ function render() {
       let tile = document.querySelector(`#tile-${row}-${col}`);
       let value = gameBoard[row][col];
       if (value === 0) {
-        tile.src = "empty-tile.jpg";
+        tile.src = "images/empty-tile.jpg";
       } else if (value === 2) {
-        tile.src = "zendaya-2.jpg";
+        tile.src = "images/zendaya-2.jpg";
       } else if (value === 4) {
-        tile.src = "zendaya-4.jpg";
+        tile.src = "images/zendaya-4.jpg";
       } else if (value === 8) {
-        tile.src = "zendaya-8.jpg";
+        tile.src = "images/zendaya-8.jpg";
       } else if (value === 16) {
-        tile.src = "zendaya-16.jpg";
+        tile.src = "images/zendaya-16.jpg";
       } else if (value === 32) {
-        tile.src = "zendaya-32.jpg";
+        tile.src = "images/zendaya-32.jpg";
       } else if (value === 64) {
-        tile.src = "zendaya-64.jpg";
+        tile.src = "images/zendaya-64.jpg";
       } else if (value === 128) {
-        tile.src = "zendaya-128.jpg";
+        tile.src = "images/zendaya-128.jpg";
       } else if (value === 256) {
-        tile.src = "zendaya-256.jpg";
+        tile.src = "images/zendaya-256.jpg";
       } else if (value === 512) {
-        tile.src = "zendaya-512.jpg";
+        tile.src = "images/zendaya-512.jpg";
       } else if (value === 1024) {
-        tile.src = "zendaya-1024.jpg";
+        tile.src = "images/zendaya-1024.jpg";
       } else if (value === 2048) {
-        tile.src = "zendaya-2048.jpg";
+        tile.src = "images/zendaya-2048.jpg";
       } else if (value === 4096) {
-        tile.src = "zendaya-4096.jpg";
+        tile.src = "images/zendaya-4096.jpg";
       } else if (value === 8192) {
-        tile.src = "zendaya-8192.jpg";
+        tile.src = "images/zendaya-8192.jpg";
       }
     }
   }
