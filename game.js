@@ -25,7 +25,7 @@ function render() {
       } else if (value === 64) {
         tile.src = "zendaya-64.jpg";
       } else if (value === 128) {
-        tile.src = "path/to/zendaya-128.jpg";
+        tile.src = "zendaya-128.jpg";
       } else if (value === 256) {
         tile.src = "zendaya-256.jpg";
       } else if (value === 512) {
