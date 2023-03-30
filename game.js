@@ -34,6 +34,10 @@ function render() {
         tile.src = "path/to/zendaya-1024.jpg";
       } else if (value === 2048) {
         tile.src = "path/to/zendaya-2048.jpg";
+      } else if (value === 4096) {
+        tile.src = "path/to/zendaya-4096.jpg";
+      } else if (value === 8192) {
+        tile.src = "path/to/zendaya-8192.jpg";
       }
     }
   }
