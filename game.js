@@ -6,40 +6,28 @@
 
 // update the game board to reflect the current state of the game
 function render() {
-  for (let row = 0; row < 4; row++) {
-    for (let col = 0; col < 4; col++) {
-      let tile = document.querySelector(`#tile-${row}-${col}`);
-      let value = gameBoard[row][col];
-      if (value === 0) {
-        tile.src = "images/empty-tile.jpg";
-      } else if (value === 2) {
-        tile.src = "images/zendaya-2.jpg";
-      } else if (value === 4) {
-        tile.src = "images/zendaya-4.jpg";
-      } else if (value === 8) {
-        tile.src = "images/zendaya-8.jpg";
-      } else if (value === 16) {
-        tile.src = "images/zendaya-16.jpg";
-      } else if (value === 32) {
-        tile.src = "images/zendaya-32.jpg";
-      } else if (value === 64) {
-        tile.src = "images/zendaya-64.jpg";
-      } else if (value === 128) {
-        tile.src = "images/zendaya-128.jpg";
-      } else if (value === 256) {
-        tile.src = "images/zendaya-256.jpg";
-      } else if (value === 512) {
-        tile.src = "images/zendaya-512.jpg";
-      } else if (value === 1024) {
-        tile.src = "images/zendaya-1024.jpg";
-      } else if (value === 2048) {
-        tile.src = "images/zendaya-2048.jpg";
-      } else if (value === 4096) {
-        tile.src = "images/zendaya-4096.jpg";
-      } else if (value === 8192) {
-        tile.src = "images/zendaya-8192.jpg";
+  for (let row = 0; row < gameBoard.length; row++) {
+    for (let col = 0; col < gameBoard[row].length; col++) {
+      const tileId = `tile-${row}-${col}`;
+      const tileImg = document.getElementById(tileId);
+      
+      if (gameBoard[row][col] === 0) {
+        tileImg.src = "images/empty-tile.jpg";
+      } else {
+        tileImg.src = `images/zendaya-${gameBoard[row][col]}.jpg`;
       }
     }
+  }
+
+  // Add two random tiles
+  for (let i = 0; i < 2; i++) {
+    let row, col;
+    do {
+      row = Math.floor(Math.random() * 4);
+      col = Math.floor(Math.random() * 4);
+    } while (gameBoard[row][col] !== 0);
+
+    gameBoard[row][col] = Math.random() < 0.5 ? 2 : 4;
   }
 }
 
