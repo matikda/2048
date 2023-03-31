@@ -136,3 +136,6 @@ function moveRight() {
         }
         if (currentCol !== col) {
           gameBoard[row][currentCol] = gameBoard[row][col];
+          
+          
+startGame();
